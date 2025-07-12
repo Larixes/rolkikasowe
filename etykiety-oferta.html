@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIKO - Etykiety do wag i drukarek termicznych</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+      <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gray-800 rounded-full p-2">
+                    <span class="text-white font-bold text-xl">D</span>
+                </div>
+                <span class="text-2xl font-bold text-gray-800">DIKO</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
+                
+                <!-- Dropdown Oferta -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                        <span>Oferta</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                        <a href="/rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
+                        <a href="/tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
+                        <a href="/metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Serwis metkownic</a>
+                        <a href="/etykiety-do-metkownic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety do metkownic</a>
+                        <a href="/druk-etykiet.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Druk etykiet</a>
+                        <a href="/etykiety-oferta.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety</a>
+                        <a href="/urzadzenia-iglowe-laczniki.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Urządzenia igłowe</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Poligrafia</a>
+                    </div>
+                </div>
+
+                <a href="/o-firmie.html" class="text-gray-600 hover:text-green-600 transition">O firmie</a>
+                <a href="/kontakt.html" class="text-gray-600 hover:text-green-600 transition">Kontakt</a>
+                <a href="/kontakt.html" class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Złóż zamówienie</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna treść podstrony -->
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            
+            <!-- Nagłówek podstrony -->
+            <div class="mb-12 text-center md:text-left">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Etykiety do wag i drukarek termicznych</h1>
+                <p class="text-lg text-gray-600">Wybierz, co Cię interesuje i skontaktuj się z nami w celu złożenia zamówienia.</p>
+            </div>
+
+            <!-- Tabela z produktami -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6 flex items-center space-x-4 border-b">
+                    <img src="https://placehold.co/100x100/A7F3D0/166534?text=Etykiety" alt="Etykiety do wag" class="rounded-lg">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">Etykiety do wag</h2>
+                        <p class="text-gray-500">Etykiety termiczne do wag sklepowych</p>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Nazwa</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Ilość etykiet na rolce</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Cena netto</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr>
+                                <td class="p-4 whitespace-nowrap">
+                                    <div class="font-medium text-gray-800">Etykieta 58 x 40 mm</div>
+                                    <div class="text-sm text-gray-500">termiczna bez nadruku</div>
+                                </td>
+                                <td class="p-4 text-gray-700">600</td>
+                                <td class="p-4 text-gray-800 font-bold text-right">6,60 zł</td>
+                            </tr>
+                            <tr class="bg-gray-50">
+                                <td class="p-4 whitespace-nowrap">
+                                    <div class="font-medium text-gray-800">Etykieta 58 x 40 mm</div>
+                                    <div class="text-sm text-gray-500">termiczna z nadrukiem</div>
+                                </td>
+                                <td class="p-4 text-gray-700">600</td>
+                                <td class="p-4 text-gray-800 font-bold text-right">6,90 zł</td>
+                            </tr>
+                            <tr>
+                                <td class="p-4 whitespace-nowrap">
+                                    <div class="font-medium text-gray-800">Etykieta 58 x 43 mm</div>
+                                    <div class="text-sm text-gray-500">termiczna bez nadruku</div>
+                                </td>
+                                <td class="p-4 text-gray-700">1000</td>
+                                <td class="p-4 text-gray-800 font-bold text-right">9,50 zł</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Dodatkowe informacje i wezwanie do działania -->
+            <div class="mt-12 text-center max-w-2xl mx-auto">
+                <p class="text-gray-600 mb-4">
+                    Posiadamy również etykiety do drukarek termicznych i termotransferowych. Ceny ściśle zależą od nakładu, rodzaju etykiet i zastosowanego kleju.
+                </p>
+                <p class="text-gray-600 mb-8">
+                    Prosimy o kontakt w celu ustalenia wartości zamówienia.
+                </p>
+                <a href="#" class="inline-flex items-center justify-center bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition text-lg shadow-lg hover:shadow-xl">
+                    <i data-lucide="phone" class="mr-2"></i>
+                    Skontaktuj się z nami
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Stopka (taka sama jak na stronie głównej) -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DIKO. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-400 text-sm mt-2">Projekt i wizualizacja stworzone na podstawie sugestii.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

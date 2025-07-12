@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIKO - Kontakt</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .hero-contact-bg {
+            background-image: url('https://images.unsplash.com/photo-1586769852836-bc069f19e1b6?q=80&w=2070&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+     <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gray-800 rounded-full p-2">
+                    <span class="text-white font-bold text-xl">D</span>
+                </div>
+                <span class="text-2xl font-bold text-gray-800">DIKO</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
+                
+                <!-- Dropdown Oferta -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                        <span>Oferta</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                        <a href="/rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
+                        <a href="/tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
+                        <a href="/metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Serwis metkownic</a>
+                        <a href="/etykiety-do-metkownic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety do metkownic</a>
+                        <a href="/druk-etykiet.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Druk etykiet</a>
+                        <a href="/etykiety-oferta.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety</a>
+                        <a href="/urzadzenia-iglowe-laczniki.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Urządzenia igłowe</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Poligrafia</a>
+                    </div>
+                </div>
+
+                <a href="/o-firmie.html" class="text-gray-600 hover:text-green-600 transition">O firmie</a>
+                <a href="/kontakt.html" class="text-gray-600 hover:text-green-600 transition">Kontakt</a>
+                <a href="/kontakt.html" class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Złóż zamówienie</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna treść podstrony -->
+    <main>
+        <!-- Sekcja Hero -->
+        <section class="hero-contact-bg text-white">
+            <div class="bg-black bg-opacity-60 min-h-[40vh] flex items-center justify-center">
+                <div class="container mx-auto px-6 text-center">
+                    <h1 class="text-4xl md:text-5xl font-black mb-4">Skontaktuj się z nami</h1>
+                    <p class="text-lg md:text-xl max-w-3xl mx-auto">Jesteśmy do Twojej dyspozycji. Zadzwoń lub napisz, aby złożyć zamówienie lub zapytać o ofertę.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sekcja z treścią -->
+        <section class="py-16 md:py-24">
+            <div class="container mx-auto px-6">
+                <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- Lewa kolumna - Dane kontaktowe -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Dane kontaktowe</h2>
+
+                        <div class="mb-8">
+                            <h3 class="font-semibold text-xl text-gray-700 mb-4">Kontakt telefoniczny:</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i data-lucide="user" class="w-6 h-6 mr-4 text-green-600"></i>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Mikołaj Wit</p>
+                                        <a href="tel:+48602886057" class="text-gray-600 hover:text-green-600">+48 602 886 057</a>
+                                    </div>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="user" class="w-6 h-6 mr-4 text-green-600"></i>
+                                    <div>
+                                        <p class="font-semibold text-gray-800">Jerzy Wit</p>
+                                        <a href="tel:+48602227152" class="text-gray-600 hover:text-green-600">+48 602 227 152</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div>
+                            <h3 class="font-semibold text-xl text-gray-700 mb-4">Zamówienia elektroniczne:</h3>
+                            <div class="space-y-4">
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-6 h-6 mr-4 text-green-600"></i>
+                                    <a href="mailto:diko@rolkikasowe.pl" class="text-gray-600 hover:text-green-600">diko@rolkikasowe.pl</a>
+                                </div>
+                                 <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-6 h-6 mr-4 text-green-600"></i>
+                                    <a href="mailto:mikolaj.wit@op.pl" class="text-gray-600 hover:text-green-600">mikolaj.wit@op.pl</a>
+                                </div>
+                                <div class="flex items-center">
+                                    <i data-lucide="mail" class="w-6 h-6 mr-4 text-green-600"></i>
+                                    <a href="mailto:diko28@interia.pl" class="text-gray-600 hover:text-green-600">diko28@interia.pl</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Prawa kolumna - Informacje o dostawie -->
+                    <div class="bg-white p-8 rounded-xl shadow-md">
+                        <h2 class="text-3xl font-bold text-gray-800 mb-6">Dostawa i odbiór</h2>
+                        <div class="space-y-6 text-gray-700 leading-relaxed">
+                            <div class="flex items-start">
+                                <i data-lucide="truck" class="w-8 h-8 mr-4 text-green-600 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Bezpośrednie dostawy</h4>
+                                    <p>Działamy na zasadzie bezpośredniej dostawy do klienta. Zamówienia dowozimy prosto do Państwa firmy, zapewniając wygodę i oszczędność czasu.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="map-pin" class="w-8 h-8 mr-4 text-green-600 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Darmowa dostawa w Warszawie i okolicach</h4>
+                                    <p>Na terenie Warszawy i okolic dostawa jest bezpłatna.</p>
+                                </div>
+                            </div>
+                             <div class="flex items-start">
+                                <i data-lucide="package" class="w-8 h-8 mr-4 text-green-600 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Wysyłki kurierskie</h4>
+                                    <p>Pozostałe zamówienia realizujemy przy pomocy sprawdzonych usług kurierskich.</p>
+                                </div>
+                            </div>
+                            <div class="flex items-start">
+                                <i data-lucide="shopping-basket" class="w-8 h-8 mr-4 text-green-600 flex-shrink-0"></i>
+                                <div>
+                                    <h4 class="font-semibold text-lg">Odbiór osobisty</h4>
+                                    <p>Istnieje również możliwość osobistego odbioru zamówień z naszego magazynu w Sulejówku.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DIKO. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-400 text-sm mt-2">Projekt i wizualizacja stworzone na podstawie sugestii.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

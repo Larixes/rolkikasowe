@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIKO - Rolki termiczne do kas i terminali płatniczych</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        #ai-modal.hidden {
+            display: none;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #4ade80;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gray-800 rounded-full p-2">
+                    <span class="text-white font-bold text-xl">D</span>
+                </div>
+                <span class="text-2xl font-bold text-gray-800">DIKO</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
+                
+                <!-- Dropdown Oferta -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                        <span>Oferta</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                        <a href="/rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
+                        <a href="/tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
+                        <a href="/metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Serwis metkownic</a>
+                        <a href="/etykiety-do-metkownic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety do metkownic</a>
+                        <a href="/druk-etykiet.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Druk etykiet</a>
+                        <a href="/etykiety-oferta.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety</a>
+                        <a href="/urzadzenia-iglowe-laczniki.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Urządzenia igłowe</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Poligrafia</a>
+                    </div>
+                </div>
+
+                <a href="/o-firmie.html" class="text-gray-600 hover:text-green-600 transition">O firmie</a>
+                <a href="/kontakt.html" class="text-gray-600 hover:text-green-600 transition">Kontakt</a>
+                <a href="/kontakt.html" class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Złóż zamówienie</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna treść podstrony -->
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            
+            <!-- Nagłówek podstrony -->
+            <div class="mb-12 text-center md:text-left">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Rolki termiczne do kas i terminali płatniczych</h1>
+                <p class="text-lg text-gray-600">W ofercie posiadamy wyłącznie rolki sprawdzonych producentów z certyfikatem wolnym od Bisfenolu (BPA).</p>
+            </div>
+
+            <!-- Tabela z produktami -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                <div class="p-6 flex items-center space-x-4 border-b">
+                    <img src="https://placehold.co/100x100/A7F3D0/166534?text=Rolki" alt="Rolki termiczne" class="rounded-lg">
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800">Cennik rolek termicznych</h2>
+                        <p class="text-gray-500">Realizujemy również zamówienia na rolki spersonalizowane z nadrukiem.</p>
+                    </div>
+                </div>
+                
+                <div class="overflow-x-auto">
+                    <table class="w-full text-left">
+                        <thead class="bg-gray-50">
+                            <tr>
+                                <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Rodzaj</th>
+                                <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Cena za rolkę netto</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y divide-gray-200">
+                            <tr><td class="p-4 font-medium text-gray-800">Rolka termiczna 28x30m</td><td class="p-4 text-gray-800 font-bold text-right">0,70 zł</td></tr>
+                            <tr class="bg-gray-50"><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x10m</td><td class="p-4 text-gray-800 font-bold text-right">0,70 zł</td></tr>
+                            <tr><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x15m</td><td class="p-4 text-gray-800 font-bold text-right">1,05 zł</td></tr>
+                            <tr class="bg-gray-50"><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x20m</td><td class="p-4 text-gray-800 font-bold text-right">1,20 zł</td></tr>
+                            <tr><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x25m</td><td class="p-4 text-gray-800 font-bold text-right">1,50 zł</td></tr>
+                            <tr class="bg-gray-50"><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x30m</td><td class="p-4 text-gray-800 font-bold text-right">1,40 zł</td></tr>
+                            <tr><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x60m</td><td class="p-4 text-gray-800 font-bold text-right">3,20 zł</td></tr>
+                            <tr class="bg-gray-50"><td class="p-4 font-medium text-gray-800">Rolka termiczna 57x100m</td><td class="p-4 text-gray-800 font-bold text-right">4,80 zł</td></tr>
+                            <tr><td class="p-4 font-medium text-gray-800">Rolka termiczna 80x60m</td><td class="p-4 text-gray-800 font-bold text-right">5,10 zł</td></tr>
+                            <tr class="bg-gray-50"><td class="p-4 font-medium text-gray-800">Rolka termiczna 80x80m</td><td class="p-4 text-gray-800 font-bold text-right">9,20 zł</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="p-4 bg-gray-50 text-sm text-gray-600 text-center">
+                    Podane ceny są cenami NETTO, należy do nich doliczyć 23% VAT.
+                </div>
+            </div>
+
+            <!-- Sekcja z Asystentem AI -->
+            <div class="mt-16 text-center max-w-3xl mx-auto bg-white p-8 rounded-xl shadow-lg border border-green-200">
+                <h3 class="text-2xl font-bold text-gray-800">Potrzebujesz pomocy z zapytaniem?</h3>
+                <p class="text-gray-600 mt-2 mb-6">
+                    Użyj naszego Asystenta AI! Opisz, czego potrzebujesz, a my wygenerujemy dla Ciebie gotową treść wiadomości e-mail.
+                </p>
+                <button id="open-ai-modal-btn" class="inline-flex items-center justify-center bg-gradient-to-r from-green-500 to-emerald-600 text-white font-bold py-3 px-8 rounded-lg hover:opacity-90 transition text-lg shadow-lg hover:shadow-xl">
+                    <i data-lucide="sparkles" class="mr-2"></i>
+                    ✨ Użyj Asystenta Zapytania AI
+                </button>
+            </div>
+        </div>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DIKO. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-400 text-sm mt-2">Projekt i wizualizacja stworzone na podstawie sugestii.</p>
+        </div>
+    </footer>
+    
+</body>
+</html>

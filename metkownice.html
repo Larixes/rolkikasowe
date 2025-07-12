@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIKO - Metkownice i numeratory</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+        .product-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+       <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gray-800 rounded-full p-2">
+                    <span class="text-white font-bold text-xl">D</span>
+                </div>
+                <span class="text-2xl font-bold text-gray-800">DIKO</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
+                
+                <!-- Dropdown Oferta -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                        <span>Oferta</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                        <a href="/rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
+                        <a href="/tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
+                        <a href="/metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Serwis metkownic</a>
+                        <a href="/etykiety-do-metkownic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety do metkownic</a>
+                        <a href="/druk-etykiet.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Druk etykiet</a>
+                        <a href="/etykiety-oferta.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety</a>
+                        <a href="/urzadzenia-iglowe-laczniki.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Urządzenia igłowe</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Poligrafia</a>
+                    </div>
+                </div>
+
+                <a href="/o-firmie.html" class="text-gray-600 hover:text-green-600 transition">O firmie</a>
+                <a href="/kontakt.html" class="text-gray-600 hover:text-green-600 transition">Kontakt</a>
+                <a href="/kontakt.html" class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Złóż zamówienie</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna treść podstrony -->
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            
+            <!-- Nagłówek podstrony -->
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Metkownice i numeratory</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">W naszej sprzedaży posiadamy metkownice METO, BLITZ, HALLO, SATO. Wybierz interesujący Cię produkt i skontaktuj się z nami.</p>
+            </div>
+
+            <!-- Sekcja Metkownice -->
+            <div class="mb-16">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Metkownice</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <!-- Karta produktu -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/e2e8f0/334155?text=METO+722" alt="Metkownica METO" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">METO 722, 1822, 2022</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Metkownice jednorzędowe.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+
+                    <!-- Karta produktu -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/e2e8f0/334155?text=SATO+KENDO" alt="Metkownica SATO" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">SATO Kendo</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Nowoczesna i ergonomiczna metkownica.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+
+                    <!-- Karta produktu -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/e2e8f0/334155?text=BLITZ+C20" alt="Metkownica BLITZ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">BLITZ C20</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Metkownica dwurzędowa alfanumeryczna.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Karta produktu -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/e2e8f0/334155?text=Numerator" alt="Numerator" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">Numerator</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Urządzenie do numerowania.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sekcja Akcesoria -->
+            <div class="mb-12">
+                <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center md:text-left">Wałki barwiące i akcesoria</h2>
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <!-- Karta akcesorium -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/dbeafe/1e3a8a?text=Wałki+METO" alt="Wałki barwiące METO" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">Wałki barwiące do METO</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Oryginalne wałki do metkownic METO.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+
+                    <!-- Karta akcesorium -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/dbeafe/1e3a8a?text=Wałki+BLITZ" alt="Wałki barwiące BLITZ" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">Wałki barwiące do BLITZ</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Oryginalne wałki do metkownic BLITZ.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+                    
+                    <!-- Karta akcesorium -->
+                    <div class="product-card bg-white rounded-xl shadow-md overflow-hidden flex flex-col">
+                        <img src="https://placehold.co/400x300/dbeafe/1e3a8a?text=Wałki+SATO" alt="Wałki barwiące SATO" class="w-full h-48 object-cover">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h3 class="text-xl font-bold text-gray-800">Wałki barwiące do SATO</h3>
+                            <p class="text-gray-600 mt-2 flex-grow">Oryginalne wałki do metkownic SATO.</p>
+                            <a href="#" class="mt-4 w-full text-center bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Zapytaj o cenę</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Wezwanie do działania -->
+            <div class="text-center max-w-2xl mx-auto mt-16">
+                <a href="#" class="inline-flex items-center justify-center bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition text-lg shadow-lg hover:shadow-xl">
+                    <i data-lucide="phone" class="mr-2"></i>
+                    Skontaktuj się z nami w celu złożenia zamówienia
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DIKO. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-400 text-sm mt-2">Projekt i wizualizacja stworzone na podstawie sugestii.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

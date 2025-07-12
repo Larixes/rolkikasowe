@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DIKO - Druk etykiet</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700;900&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Lato', sans-serif;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+     <!-- Nagłówek i Nawigacja -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <div class="flex items-center space-x-3">
+                <div class="bg-gray-800 rounded-full p-2">
+                    <span class="text-white font-bold text-xl">D</span>
+                </div>
+                <span class="text-2xl font-bold text-gray-800">DIKO</span>
+            </div>
+            <nav class="hidden md:flex items-center space-x-8">
+                <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
+                
+                <!-- Dropdown Oferta -->
+                <div class="relative group">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                        <span>Oferta</span>
+                        <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
+                    </button>
+                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                        <a href="/rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
+                        <a href="/tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
+                        <a href="/metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Serwis metkownic</a>
+                        <a href="/etykiety-do-metkownic.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety do metkownic</a>
+                        <a href="/druk-etykiet.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Druk etykiet</a>
+                        <a href="/etykiety-oferta.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Etykiety</a>
+                        <a href="/urzadzenia-iglowe-laczniki.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Urządzenia igłowe</a>
+                        <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Poligrafia</a>
+                    </div>
+                </div>
+
+                <a href="/o-firmie.html" class="text-gray-600 hover:text-green-600 transition">O firmie</a>
+                <a href="/kontakt.html" class="text-gray-600 hover:text-green-600 transition">Kontakt</a>
+                <a href="/kontakt.html" class="bg-green-600 text-white font-bold py-2 px-4 rounded-lg hover:bg-green-700 transition">Złóż zamówienie</a>
+            </nav>
+            <button class="md:hidden text-gray-700">
+                <i data-lucide="menu"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Główna treść podstrony -->
+    <main class="py-16 md:py-24">
+        <div class="container mx-auto px-6">
+            
+            <!-- Nagłówek podstrony -->
+            <div class="mb-12 text-center">
+                <h1 class="text-4xl font-bold text-gray-800 mb-2">Druk etykiet</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Wybierz to, czego potrzebujesz i zadzwoń do nas w celu złożenia zamówienia. Proponujemy druk etykiet na rolach.</p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-md overflow-hidden p-8 md:p-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                    
+                    <!-- Lewa kolumna - Informacje -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Metody druku i materiały</h2>
+                        <p class="text-gray-600 mb-6">Oferujemy szeroki wachlarz technik druku, aby idealnie dopasować się do Twoich potrzeb.</p>
+                        
+                        <ul class="space-y-4 text-gray-700">
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="text-green-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong class="font-semibold">Druk termotransferowy:</strong> Idealny dla trwałych i odpornych na ścieranie etykiet.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="text-green-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong class="font-semibold">Druk termiczny:</strong> Ekonomiczne rozwiązanie dla etykiet o krótszej żywotności, np. wysyłkowych.</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i data-lucide="check-circle" class="text-green-500 mr-3 mt-1 flex-shrink-0"></i>
+                                <span><strong class="font-semibold">Druk fleksograficzny i cyfrowy:</strong> Dla wysokiej jakości, kolorowych etykiet produktowych.</span>
+                            </li>
+                        </ul>
+
+                        <p class="mt-8 text-gray-600">
+                            Drukujemy na foliach, papierach samoprzylepnych o różnej mocy kleju, a także na różnych rodzajach papieru i papieru ozdobnego.
+                        </p>
+                        <p class="mt-4 text-gray-600 font-semibold">
+                            Zapraszamy do współpracy!
+                        </p>
+                    </div>
+
+                    <!-- Prawa kolumna - Przykłady -->
+                    <div>
+                        <h2 class="text-2xl font-bold text-gray-800 mb-4">Przykładowe realizacje</h2>
+                        <div class="grid grid-cols-2 gap-4">
+                            <img src="https://placehold.co/400x300/e0f2f1/00796b?text=Etykieta+1" alt="Przykład etykiety 1" class="rounded-lg shadow-md w-full h-auto">
+                            <img src="https://placehold.co/400x300/e0f2f1/00796b?text=Etykieta+2" alt="Przykład etykiety 2" class="rounded-lg shadow-md w-full h-auto">
+                            <img src="https://placehold.co/400x300/e0f2f1/00796b?text=Etykieta+3" alt="Przykład etykiety 3" class="rounded-lg shadow-md w-full h-auto">
+                            <img src="https://placehold.co/400x300/e0f2f1/00796b?text=Etykieta+4" alt="Przykład etykiety 4" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                         <div class="mt-6">
+                            <img src="https://placehold.co/600x200/e0f2f1/00796b?text=Etykiety+Termiczne" alt="Etykiety termiczne na rolce" class="rounded-lg shadow-md w-full h-auto">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Wezwanie do działania -->
+            <div class="text-center max-w-2xl mx-auto mt-16">
+                <a href="#" class="inline-flex items-center justify-center bg-green-600 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-700 transition text-lg shadow-lg hover:shadow-xl">
+                    <i data-lucide="phone" class="mr-2"></i>
+                    Skontaktuj się z nami w celu złożenia zamówienia
+                </a>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Stopka -->
+    <footer class="bg-gray-800 text-white">
+        <div class="container mx-auto px-6 py-8 text-center">
+            <p>&copy; 2025 DIKO. Wszelkie prawa zastrzeżone.</p>
+            <p class="text-gray-400 text-sm mt-2">Projekt i wizualizacja stworzone na podstawie sugestii.</p>
+        </div>
+    </footer>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
