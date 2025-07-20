@@ -29,13 +29,13 @@
             <nav class="hidden md:flex items-center space-x-8">
                 <a href="/" class="text-gray-600 hover:text-green-600 transition">Strona główna</a>
                 
-                <!-- Dropdown Oferta -->
+              <!-- Dropdown Oferta -->
                 <div class="relative group">
-                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none">
+                    <button class="flex items-center text-gray-600 hover:text-green-600 transition focus:outline-none py-4">
                         <span>Oferta</span>
                         <i data-lucide="chevron-down" class="w-4 h-4 ml-1 transition-transform duration-200 group-hover:rotate-180"></i>
                     </button>
-                    <div class="absolute z-20 hidden group-hover:block bg-white rounded-lg shadow-xl mt-2 py-2 w-56">
+                    <div class="absolute top-full left-0 z-20 hidden group-hover:block bg-white rounded-lg shadow-xl py-2 w-56">
                         <a href="rolki-kasowe.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Rolki kasowe</a>
                         <a href="tasmy-klejace.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Taśmy klejące</a>
                         <a href="metkownice.html" class="block px-4 py-2 text-sm text-gray-700 hover:bg-green-50 hover:text-green-600">Metkownice</a>
@@ -71,7 +71,9 @@
             <!-- Tabela z produktami -->
             <div class="bg-white rounded-xl shadow-md overflow-hidden">
                 <div class="p-6 flex items-center space-x-4 border-b">
-                    <img src="https://placehold.co/100x100/A7F3D0/166534?text=Etykiety" alt="Etykiety do wag" class="rounded-lg">
+                    <div class="bg-green-100 text-green-700 w-20 h-20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <i data-lucide="tags" class="w-10 h-10"></i>
+                    </div>
                     <div>
                         <h2 class="text-2xl font-bold text-gray-800">Etykiety do wag</h2>
                         <p class="text-gray-500">Etykiety termiczne do wag sklepowych</p>
@@ -131,6 +133,7 @@
                 </a>
             </div>
 
+           
         </div>
     </main>
 
