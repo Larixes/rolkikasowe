@@ -99,6 +99,29 @@
                 </div>
             </div>
 
+                <!-- Sekcja Łączniki STANDARD -->
+            <div class="mb-12">
+                <div class="bg-white rounded-xl shadow-md overflow-hidden">
+                    <div class="p-6">
+                        <h2 class="text-2xl font-bold text-gray-800">Łączniki STANDARD</h2>
+                        <p class="text-gray-500">Do materiałów średnich i grubych.</p>
+                    </div>
+                    <div class="overflow-x-auto">
+                        <table class="w-full text-left">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Nazwa</th>
+                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Ilość w opakowaniu</th>
+                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Cena netto</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-gray-200" id="cennik-laczniki-standard">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
             <!-- Sekcja Łączniki FINE -->
             <div class="mb-12">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
@@ -181,5 +204,34 @@
     <script>
         lucide.createIcons();
     </script>
+    <script>
+        // Wstaw ten skrypt na dole strony, przed zamknięciem </body>
+
+const sheetUrl = 'TU_WKLEJ_SWOJ_LINK_DO_PLIKU_CSV_Z_GOOGLE';
+
+fetch(sheetUrl)
+  .then(response => response.text())
+  .then(data => {
+    const rows = data.split('\n').slice(1); // Pomiń nagłówek
+    const tableBody = document.getElementById('cennik-body');
+
+    rows.forEach(row => {
+      const cols = row.split(','); // Uwaga: działa prosto, jeśli w nazwach nie ma przecinków
+      if(cols.length < 3) return; // Zabezpieczenie przed pustymi wierszami
+
+      const tr = document.createElement('tr');
+      // Dodajemy klasy Tailwind, które widzę na Twoim screenie
+      tr.className = "bg-gray-50 border-b border-gray-200"; 
+      
+      tr.innerHTML = `
+        <td class="p-4 font-medium text-gray-800">${cols[0]}</td>
+        <td class="p-4 text-gray-700">${cols[1]}</td>
+        <td class="p-4 text-gray-800 font-bold text-right">${cols[2]}</td>
+      `;
+      tableBody.appendChild(tr);
+    });
+  });
+    </script>
 </body>
 </html>
+
