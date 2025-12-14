@@ -68,6 +68,9 @@
                 <p class="text-lg text-gray-600 max-w-3xl mx-auto">Oferujemy pistolety metkownicowe igłowe oraz łączniki renomowanej firmy Avery Dennison jak również w pełni sprawdzoną linię produktów Economy, którą cechuje dobra jakość i przystępna cena.</p>
             </div>
 
+            <div id="cennik-container" class="space-y-8">
+            </div>
+
             <!-- Sekcja Łączniki STANDARD -->
             <div class="mb-12">
                 <div class="bg-white rounded-xl shadow-md overflow-hidden">
@@ -205,35 +208,100 @@
         lucide.createIcons();
     </script>
     <script>
-        // Wstaw ten skrypt na dole strony, przed zamknięciem </body>
-
-const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSnmz8PPvaQQ9E1-tdRhyZFBdIOdnE8gqKfCmOC9OLuvSBs2vGrAIdpp6jzWNg9kQRsI_NeWIlXJyEy/pub?output=csv';
+        const sheetUrl = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vSnmz8PPvaQQ9E1-tdRhyZFBdIOdnE8gqKfCmOC9OLuvSBs2vGrAIdpp6jzWNg9kQRsI_NeWIlXJyEy/pub?output=csv';
 
 fetch(sheetUrl)
-  .then(response => response.text())
-  .then(data => {
-    const rows = data.split('\n').slice(1); // Pomiń nagłówek
-    const tableBody = document.getElementById('cennik-laczniki-standard');
+  .then(res => res.text())
+  .then(csvText => {
+    // 1. Parsowanie CSV (proste dzielenie po przecinkach)
+    // Uwaga: Zakładam, że w cenach nie masz przecinków (np. używasz kropek 20.00 zł lub formatu bez przecinka)
+    // Jeśli CSV ma przecinki w treści, trzeba użyć lepszego parsera, ale na początek to wystarczy.
+    const rows = csvText.split('\n').map(row => row.split(','));
+    
+    const container = document.getElementById('cennik-container');
+    container.innerHTML = ''; // Czyścimy kontener
 
-    rows.forEach(row => {
-      const cols = row.split(','); // Uwaga: działa prosto, jeśli w nazwach nie ma przecinków
-      if(cols.length < 3) return; // Zabezpieczenie przed pustymi wierszami
+    // Zmienne pomocnicze
+    let currentTable = null;
+    let currentTbody = null;
+    
+    // Funkcja tworząca nową tabelkę
+    const startNewTable = (titleText) => {
+        // 1. Stwórz Tytuł Sekcji (np. Urządzenia)
+        if (titleText) {
+            const h2 = document.createElement('h2');
+            h2.className = "text-2xl font-bold text-gray-800 mt-8 mb-4";
+            h2.textContent = titleText;
+            container.appendChild(h2);
+        }
 
-      const tr = document.createElement('tr');
-      // Dodajemy klasy Tailwind, które widzę na Twoim screenie
-      tr.className = "bg-gray-50 border-b border-gray-200"; 
-      
-      tr.innerHTML = `
-        <td class="p-4 font-medium text-gray-800">${cols[0]}</td>
-        <td class="p-4 text-gray-700">${cols[1]}</td>
-        <td class="p-4 text-gray-800 font-bold text-right">${cols[2]}</td>
-      `;
-      tableBody.appendChild(tr);
+        // 2. Stwórz Tabelę (kontener + nagłówki)
+        const tableWrapper = document.createElement('div');
+        tableWrapper.className = "bg-white rounded-xl shadow-md overflow-hidden";
+        
+        const table = document.createElement('table');
+        table.className = "w-full text-left";
+        
+        // Dodaj stały nagłówek (Nazwa, Materiał, Cena) - taki jak w Twoim pierwszym wierszu
+        table.innerHTML = `
+            <thead class="bg-gray-50">
+                <tr>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase">Nazwa</th>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase">Materiał</th>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase text-right">Cena netto</th>
+                </tr>
+            </thead>
+        `;
+
+        currentTbody = document.createElement('tbody');
+        currentTbody.className = "divide-y divide-gray-200";
+        table.appendChild(currentTbody);
+        
+        tableWrapper.appendChild(table);
+        container.appendChild(tableWrapper);
+        currentTable = tableWrapper; // Zapisujemy, że mamy aktywną tabelę
+    };
+
+    // Rozpoczynamy pierwszą tabelę domyślnie (dla pierwszej sekcji)
+    // Pomińmy wiersz 0 (nagłówki z Excela), zacznijmy od danych
+    startNewTable(""); // Pusty tytuł dla pierwszej sekcji, bo ona jest na samej górze
+
+    rows.slice(1).forEach(cols => {
+        // Czyścimy śmieci (np. puste znaki końca linii)
+        const col0 = cols[0]?.trim();
+        const col1 = cols[1]?.trim();
+        const col2 = cols[2]?.trim();
+
+        // LOGIKA DETEKCJI SEKCJI:
+        
+        // A. Jeśli wiersz jest całkowicie pusty -> ignorujemy
+        if (!col0 && !col1 && !col2) return;
+
+        // B. Jeśli jest nazwa w 1 kolumnie, a reszta pusta -> TO NOWA SEKCJA (np. "Urządzenia")
+        // Sprawdzamy: col0 ma treść, col1 pusty, col2 pusty (lub zawiera tylko znaki nowej linii)
+        if (col0 && !col1 && (!col2 || col2.length < 2)) {
+            startNewTable(col0); // Tworzymy nową tabelę z tytułem z col0
+            return;
+        }
+
+        // C. Normalny wiersz z produktem -> dodajemy do aktualnej tabeli
+        if (currentTbody) {
+            const tr = document.createElement('tr');
+            tr.innerHTML = `
+                <td class="p-4 font-medium text-gray-800">${col0 || ''}</td>
+                <td class="p-4 text-gray-500">${col1 || ''}</td>
+                <td class="p-4 text-gray-800 font-bold text-right">${col2 || ''}</td>
+            `;
+            currentTbody.appendChild(tr);
+        }
     });
-  });
+
+  })
+  .catch(error => console.error('Błąd pobierania cennika:', error));
     </script>
 </body>
 </html>
+
 
 
 
