@@ -213,94 +213,100 @@
 fetch(sheetUrl)
   .then(res => res.text())
   .then(csvText => {
-    // 1. Parsowanie CSV (proste dzielenie po przecinkach)
-    // Uwaga: Zakładam, że w cenach nie masz przecinków (np. używasz kropek 20.00 zł lub formatu bez przecinka)
-    // Jeśli CSV ma przecinki w treści, trzeba użyć lepszego parsera, ale na początek to wystarczy.
     const rows = csvText.split('\n').map(row => row.split(','));
-    
     const container = document.getElementById('cennik-container');
     container.innerHTML = ''; // Czyścimy kontener
 
-    // Zmienne pomocnicze
-    let currentTable = null;
     let currentTbody = null;
     
-    // Funkcja tworząca nową tabelkę
+    // --- ZMODYFIKOWANA FUNKCJA TWORZĄCA TABELĘ ---
     const startNewTable = (titleText) => {
-        // 1. Stwórz Tytuł Sekcji (np. Urządzenia)
-        if (titleText) {
+        // 1. Najpierw tworzymy GŁÓWNY BIAŁY KONTENER (Wrapper)
+        const tableWrapper = document.createElement('div');
+        // Dodajemy klasy: białe tło, zaokrąglenie, cień i odstęp od dołu (mb-8)
+        tableWrapper.className = "bg-white rounded-xl shadow-md overflow-hidden mb-8";
+        
+        // 2. Jeśli jest tytuł, tworzymy dla niego sekcję WEWNĄTRZ kontenera
+        // Stylizujemy to na wzór image_1.png
+        if (titleText && titleText.trim() !== "") {
+            const titleHeader = document.createElement('div');
+            titleHeader.className = "p-6 border-b border-gray-100"; // Padding i delikatna linia oddzielająca
+
             const h2 = document.createElement('h2');
-            h2.className = "text-2xl font-bold text-gray-800 mt-8 mb-4";
+            // Klasy dopasowane do wyglądu z Twojego przykładu
+            h2.className = "text-xl font-bold text-gray-800"; 
             h2.textContent = titleText;
-            container.appendChild(h2);
+            
+            titleHeader.appendChild(h2);
+            tableWrapper.appendChild(titleHeader);
         }
 
-        // 2. Stwórz Tabelę (kontener + nagłówki)
-        const tableWrapper = document.createElement('div');
-        tableWrapper.className = "bg-white rounded-xl shadow-md overflow-hidden";
-        
+        // 3. Tworzymy strukturę tabeli pod tytułem
         const table = document.createElement('table');
         table.className = "w-full text-left";
         
-        // Dodaj stały nagłówek (Nazwa, Materiał, Cena) - taki jak w Twoim pierwszym wierszu
+        // Nagłówki kolumn
         table.innerHTML = `
             <thead class="bg-gray-50">
                 <tr>
-                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase">Nazwa</th>
-                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase">Materiał</th>
-                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase text-right">Cena netto</th>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase border-b border-gray-200">Nazwa</th>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase border-b border-gray-200">Materiał</th>
+                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase text-right border-b border-gray-200">Cena netto</th>
                 </tr>
             </thead>
         `;
 
         currentTbody = document.createElement('tbody');
-        currentTbody.className = "divide-y divide-gray-200";
+        // Usuwamy divide-y, bo teraz każdy wiersz będzie miał własny border-b
+        // currentTbody.className = "divide-y divide-gray-200"; 
         table.appendChild(currentTbody);
         
+        // Wkładamy tabelę do białego kontenera
         tableWrapper.appendChild(table);
+        // Wkładamy cały biały kontener na stronę
         container.appendChild(tableWrapper);
-        currentTable = tableWrapper; // Zapisujemy, że mamy aktywną tabelę
     };
+    // -------------------------------------------
 
-    // Rozpoczynamy pierwszą tabelę domyślnie (dla pierwszej sekcji)
-    // Pomińmy wiersz 0 (nagłówki z Excela), zacznijmy od danych
-    startNewTable(""); // Pusty tytuł dla pierwszej sekcji, bo ona jest na samej górze
+    // Rozpoczynamy pierwszą tabelę (bez tytułu, bo dane w CSV zaczynają się od razu)
+    // Jeśli chcesz tytuł dla pierwszej sekcji, dodaj wiersz na samej górze CSV: "Tytuł pierwszej sekcji,,,"
+    startNewTable(""); 
 
+    // Pomijamy wiersz 0 (nagłówki techniczne arkusza: Nazwa, Materiał...)
     rows.slice(1).forEach(cols => {
-        // Czyścimy śmieci (np. puste znaki końca linii)
         const col0 = cols[0]?.trim();
         const col1 = cols[1]?.trim();
         const col2 = cols[2]?.trim();
 
-        // LOGIKA DETEKCJI SEKCJI:
-        
-        // A. Jeśli wiersz jest całkowicie pusty -> ignorujemy
-        if (!col0 && !col1 && !col2) return;
+        if (!col0 && !col1 && !col2) return; // Ignoruj puste wiersze
 
-        // B. Jeśli jest nazwa w 1 kolumnie, a reszta pusta -> TO NOWA SEKCJA (np. "Urządzenia")
-        // Sprawdzamy: col0 ma treść, col1 pusty, col2 pusty (lub zawiera tylko znaki nowej linii)
+        // DETEKCJA NOWEJ SEKCJI (np. "Urządzenia", "Zawieszki" z image_2.png)
+        // Jeśli jest tekst tylko w pierwszej kolumnie:
         if (col0 && !col1 && (!col2 || col2.length < 2)) {
-            startNewTable(col0); // Tworzymy nową tabelę z tytułem z col0
+            startNewTable(col0); // Tworzy nowy biały box z tym tytułem
             return;
         }
 
-        // C. Normalny wiersz z produktem -> dodajemy do aktualnej tabeli
+        // Wiersz z produktem
         if (currentTbody) {
             const tr = document.createElement('tr');
+            // Dodajemy border-b do każdego wiersza, żeby wyglądało jak w przykładzie image_1.png
+            tr.className = "border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors";
+            
             tr.innerHTML = `
                 <td class="p-4 font-medium text-gray-800">${col0 || ''}</td>
                 <td class="p-4 text-gray-500">${col1 || ''}</td>
-                <td class="p-4 text-gray-800 font-bold text-right">${col2 || ''}</td>
+                <td class="p-4 text-gray-800 font-bold text-right whitespace-nowrap">${col2 || ''}</td>
             `;
             currentTbody.appendChild(tr);
         }
     });
-
   })
-  .catch(error => console.error('Błąd pobierania cennika:', error));
+  .catch(error => console.error('Błąd:', error));
     </script>
 </body>
 </html>
+
 
 
 
