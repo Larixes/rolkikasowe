@@ -111,8 +111,8 @@
                             <thead class="bg-gray-50">
                                 <tr>
                                     <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Nazwa</th>
-                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Ilość w opakowaniu</th>
-                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Cena netto</th>
+                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider">Materiał</th>
+                                    <th class="p-4 text-sm font-semibold text-gray-600 uppercase tracking-wider text-right">Cena netto/op.</th>
                                 </tr>
                             </thead>
                             <tbody class="divide-y divide-gray-200" id="cennik-laczniki-standard">
@@ -213,7 +213,7 @@ fetch(sheetUrl)
   .then(response => response.text())
   .then(data => {
     const rows = data.split('\n').slice(1); // Pomiń nagłówek
-    const tableBody = document.getElementById('cennik-body');
+    const tableBody = document.getElementById('cennik-laczniki-standard');
 
     rows.forEach(row => {
       const cols = row.split(','); // Uwaga: działa prosto, jeśli w nazwach nie ma przecinków
@@ -234,5 +234,6 @@ fetch(sheetUrl)
     </script>
 </body>
 </html>
+
 
 
