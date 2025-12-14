@@ -215,37 +215,27 @@ fetch(sheetUrl)
   .then(csvText => {
     const rows = csvText.split('\n').map(row => row.split(','));
     const container = document.getElementById('cennik-container');
-    container.innerHTML = ''; // Czyścimy kontener
+    container.innerHTML = ''; 
 
     let currentTbody = null;
-    
-    // --- ZMODYFIKOWANA FUNKCJA TWORZĄCA TABELĘ ---
+
+    // --- FUNKCJA TWORZĄCA TABELĘ (BEZ ZMIAN) ---
     const startNewTable = (titleText) => {
-        // 1. Najpierw tworzymy GŁÓWNY BIAŁY KONTENER (Wrapper)
         const tableWrapper = document.createElement('div');
-        // Dodajemy klasy: białe tło, zaokrąglenie, cień i odstęp od dołu (mb-8)
         tableWrapper.className = "bg-white rounded-xl shadow-md overflow-hidden mb-8";
         
-        // 2. Jeśli jest tytuł, tworzymy dla niego sekcję WEWNĄTRZ kontenera
-        // Stylizujemy to na wzór image_1.png
         if (titleText && titleText.trim() !== "") {
             const titleHeader = document.createElement('div');
-            titleHeader.className = "p-6 border-b border-gray-100"; // Padding i delikatna linia oddzielająca
-
+            titleHeader.className = "p-6 border-b border-gray-100";
             const h2 = document.createElement('h2');
-            // Klasy dopasowane do wyglądu z Twojego przykładu
             h2.className = "text-xl font-bold text-gray-800"; 
             h2.textContent = titleText;
-            
             titleHeader.appendChild(h2);
             tableWrapper.appendChild(titleHeader);
         }
 
-        // 3. Tworzymy strukturę tabeli pod tytułem
         const table = document.createElement('table');
         table.className = "w-full text-left";
-        
-        // Nagłówki kolumn
         table.innerHTML = `
             <thead class="bg-gray-50">
                 <tr>
@@ -255,44 +245,39 @@ fetch(sheetUrl)
                 </tr>
             </thead>
         `;
-
         currentTbody = document.createElement('tbody');
-        // Usuwamy divide-y, bo teraz każdy wiersz będzie miał własny border-b
-        // currentTbody.className = "divide-y divide-gray-200"; 
         table.appendChild(currentTbody);
-        
-        // Wkładamy tabelę do białego kontenera
         tableWrapper.appendChild(table);
-        // Wkładamy cały biały kontener na stronę
         container.appendChild(tableWrapper);
     };
-    // -------------------------------------------
 
-    // Rozpoczynamy pierwszą tabelę (bez tytułu, bo dane w CSV zaczynają się od razu)
-    // Jeśli chcesz tytuł dla pierwszej sekcji, dodaj wiersz na samej górze CSV: "Tytuł pierwszej sekcji,,,"
-    startNewTable(""); 
+    // --- TUTAJ ZMIANA: USUNĘLIŚMY startNewTable("") ---
+    // Skrypt teraz czeka na dane z pliku CSV
 
-    // Pomijamy wiersz 0 (nagłówki techniczne arkusza: Nazwa, Materiał...)
     rows.slice(1).forEach(cols => {
         const col0 = cols[0]?.trim();
         const col1 = cols[1]?.trim();
         const col2 = cols[2]?.trim();
 
-        if (!col0 && !col1 && !col2) return; // Ignoruj puste wiersze
+        if (!col0 && !col1 && !col2) return; 
 
-        // DETEKCJA NOWEJ SEKCJI (np. "Urządzenia", "Zawieszki" z image_2.png)
-        // Jeśli jest tekst tylko w pierwszej kolumnie:
+        // 1. Wykrywanie nagłówka sekcji (tylko 1 kolumna wypełniona)
         if (col0 && !col1 && (!col2 || col2.length < 2)) {
-            startNewTable(col0); // Tworzy nowy biały box z tym tytułem
+            startNewTable(col0); 
             return;
         }
 
-        // Wiersz z produktem
+        // 2. Wykrywanie produktu
+        // ZABEZPIECZENIE: Jeśli trafimy na produkt, a nie ma jeszcze tabeli (np. zapomniałeś nagłówka w CSV na samej górze)
+        // to stwórz tabelę z domyślną nazwą "Cennik" lub "Łączniki"
+        if (!currentTbody) {
+             startNewTable("Łączniki"); 
+        }
+
+        // Dodawanie wiersza
         if (currentTbody) {
             const tr = document.createElement('tr');
-            // Dodajemy border-b do każdego wiersza, żeby wyglądało jak w przykładzie image_1.png
             tr.className = "border-b border-gray-100 last:border-b-0 hover:bg-gray-50 transition-colors";
-            
             tr.innerHTML = `
                 <td class="p-4 font-medium text-gray-800">${col0 || ''}</td>
                 <td class="p-4 text-gray-500">${col1 || ''}</td>
@@ -306,6 +291,7 @@ fetch(sheetUrl)
     </script>
 </body>
 </html>
+
 
 
 
